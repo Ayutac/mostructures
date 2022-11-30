@@ -1,4 +1,4 @@
-package io.github.frqnny.mostructures.structure;
+package io.github.frqnny.mostructures.structure.v1;
 
 import net.minecraft.structure.StructureGeneratorFactory;
 import net.minecraft.world.Heightmap;

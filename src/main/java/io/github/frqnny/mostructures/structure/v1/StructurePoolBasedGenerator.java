@@ -1,4 +1,4 @@
-package io.github.frqnny.mostructures.structure;
+package io.github.frqnny.mostructures.structure.v1;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Queues;

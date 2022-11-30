@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -9,6 +9,38 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+sourceSets {
+	// Add a data gen sourceset
+	datagen {
+		compileClasspath += main.compileClasspath
+		runtimeClasspath += main.runtimeClasspath
+		compileClasspath += main.output
+		runtimeClasspath += main.output
+	}
+
+	main {
+		resources {
+			srcDirs += [
+					'src/main/generated'
+			]
+		}
+	}
+}
+
+loom {
+	runs {
+		datagen {
+			server()
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=mostructures-datagen"
+			runDir "build/datagen"
+			source sourceSets.datagen
+		}
+	}
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -16,7 +48,9 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.config_version}")
+	datagenImplementation 'org.apache.groovy:groovy:4.0.6'
+
+	//modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.config_version}")
 }
 
 

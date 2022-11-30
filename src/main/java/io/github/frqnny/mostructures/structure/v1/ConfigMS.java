@@ -1,4 +1,4 @@
-package io.github.frqnny.mostructures.structure;
+package io.github.frqnny.mostructures.structure.v1;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -1,15 +1,13 @@
 package io.github.frqnny.mostructures.config;
 
-import draylar.omegaconfig.api.Comment;
-import draylar.omegaconfig.api.Config;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MoStructuresConfig implements Config {
-    @Comment("""
+public class MoStructuresConfig { //implements Config {
+    /*@Comment("""
              Welcome to Mo'Structures Config!
              
                Take a break, rest a while, enjoy the scenery! No? Oh, well.
@@ -26,15 +24,15 @@ public class MoStructuresConfig implements Config {
                - Separation is the minimum chunks between structures
                - Spacing is the average chunks between structures
                                     
-            """)
+            """)*/
     public final Map<String, StructureConfigEntry> structureConfigEntries = new HashMap<>(17);
 
-    @Override
+//    @Override
     public String getName() {
         return "mostructures-config-v5";
     }
 
-    @Override
+//    @Override
     public String getExtension() {
         return "json5";
     }
@@ -50,7 +48,7 @@ public class MoStructuresConfig implements Config {
         return null;
     }
 
-    @Override
+//    @Override
     public void save() {
         structureConfigEntries.putIfAbsent("abandoned_church", StructureConfigEntry.of(14, 26));
         structureConfigEntries.putIfAbsent("air_balloon", StructureConfigEntry.of(10, 20));
@@ -67,6 +65,6 @@ public class MoStructuresConfig implements Config {
         structureConfigEntries.putIfAbsent("the_castle_in_the_sky", StructureConfigEntry.of(15, 23));
         structureConfigEntries.putIfAbsent("villager_market", StructureConfigEntry.of(16, 30));
         structureConfigEntries.putIfAbsent("villager_tower", StructureConfigEntry.of(16, 29));
-        Config.super.save();
+//        Config.super.save();
     }
 }

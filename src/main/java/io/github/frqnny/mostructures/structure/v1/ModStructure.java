@@ -1,4 +1,4 @@
-package io.github.frqnny.mostructures.structure;
+package io.github.frqnny.mostructures.structure.v1;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.structure.PoolStructurePiece;
@@ -11,11 +11,12 @@ import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.structure.Structure;
 
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public class ModStructure extends StructureFeature<ConfigMS> {
+public class ModStructure extends Structure {
     public ModStructure() {
         this(0);
     }
